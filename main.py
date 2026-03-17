@@ -4,9 +4,9 @@ from google.cloud import run_v2
 from google.protobuf import field_mask_pb2
 
 # --- CONFIGURATION ---
-PROJECT_ID = "your-project-id"
-REGION = "us-central1"
-SERVICE_NAME = "live-trader-bot"
+PROJECT_ID = 'fox-of-wallstreet'
+REGION = "europe-west1"
+SERVICE_NAME = "fow"
 
 st.set_page_config(page_title="Trader Command Center", page_icon="📈")
 

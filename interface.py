@@ -1,5 +1,110 @@
 import streamlit as st
+import os
 import requests
+
+# 1. Page Configuration
+st.set_page_config(
+    page_title="Fox of Wallstreet",
+    layout="wide" # Wide layout gives the horizontal bar space
+)
+
+# 2. Styling (CSS for a modern 2026 look)
+st.markdown("""
+    <style>
+        /* Big Title Styling */
+        .big-title {
+            text-align: center;
+            font-size: 5.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        /* The Main Container for Slogans + Logo + Quote */
+        .brand-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            gap: 20px; /* Space between elements */
+            margin-top: 10px;
+        }
+
+        /* Standard Slogan Styling */
+        .slogan-text {
+            font-size: 1.5rem;
+            margin: 0;
+            white-space: nowrap; /* Keep on one line */
+        }
+
+        /* Left Slogan (Muted) */
+        .stop-slogan {
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Right Slogan (Bold Green) */
+        .start-slogan {
+            color: #2e7d32;
+            font-weight: 700;
+        }
+
+        /* The central unit: Image + Quote */
+        .logo-and-quote {
+            display: flex;
+            flex-direction: column; /* Stack image over quote */
+            align-items: center; /* Center them relative to each other */
+        }
+
+        /* The Quote below the picture */
+        .quote-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-style: italic;
+            color: #444;
+            margin-top: 5px; /* Tiny space under image */
+            text-align: center;
+            width: auto; /* Width will match content */
+            max-width: fit-content; /* Key to match image width */
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# 3. Render the Header (Main Title)
+st.markdown('<h1 class="big-title">Fox of Wallstreet</h1>', unsafe_allow_html=True)
+
+# 4. Render the Branding Bar using Flexbox
+logo_path = "Fox Of Wallstreet.png"
+if os.path.exists(logo_path):
+    # Using columns for the main horizontal alignment, but CSS for internal alignment
+    col1, col2, col3 = st.columns([2, 1, 2], vertical_alignment="center")
+
+    with col1:
+        st.markdown("""
+            <div style="text-align: right;">
+                <h3 class="slogan-text stop-slogan">Stop Reinforced Learning</h3>
+            </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        # Wrap image and quote in a centering div
+        st.markdown('<div class="logo-and-quote">', unsafe_allow_html=True)
+        # Using 2026-compliant width='content' so the logo stays its natural size
+        st.image(logo_path, width='content')
+        # The quote right below the picture
+        # st.markdown('<p class="quote-text">Become rich or die trying</p>', unsafe_allow_html=True)
+        st.markdown('<h3 class="big-title">Become rich or die trying</h1>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("""
+            <div style="text-align: left;">
+                <h3 class="slogan-text start-slogan">Start Reinforced Earning</h3>
+            </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<hr style='border: 0.5px solid #ddd; margin-top: 20px;'>", unsafe_allow_html=True)
+
+else:
+    st.error(f"Logo file '{logo_path}' missing.")
 
 # Set this to your mapped Docker port (e.g., 8081 or 8080)
 BACKEND_URL = "http://localhost:8081" 

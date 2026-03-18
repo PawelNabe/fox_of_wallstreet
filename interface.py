@@ -3,6 +3,7 @@ import requests
 
 # Set this to your mapped Docker port (e.g., 8081 or 8080)
 BACKEND_URL = "http://localhost:8081" 
+BACKEND_URL = "https://console.cloud.google.com/run/detail/europe-west1/fow/observability/metrics?project=fox-of-wallstreet"
 
 st.set_page_config(page_title="Fox of Wallstreet Control", layout="wide")
 st.title("🦊 Fox of Wallstreet: Task Control")

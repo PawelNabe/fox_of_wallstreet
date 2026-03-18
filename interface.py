@@ -109,7 +109,7 @@ else:
 # Set this to your mapped Docker port (e.g., 8081 or 8080)
 BACKEND_URL = "http://localhost:8081" 
 BACKEND_URL = "https://fow-qrmnqxuopa-ew.a.run.app"
-
+BACKEND_URL = "https://fow-937802069275.europe-west1.run.app"
 st.set_page_config(page_title="Fox of Wallstreet Control", layout="wide")
 st.title("🦊 Fox of Wallstreet: Task Control")
 

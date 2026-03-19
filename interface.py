@@ -60,8 +60,8 @@ else:
     st.error(f"Logo file '{logo_path}' missing.")
 
 # 4. Backend Configuration
-BACKEND_URL = "http://localhost:8080"
-BACKEND_URL = "https://fow-937802069275.europe-west1.run.app"
+
+BACKEND_URL = os.getenv('TEST_BACKEND_URL', "https://fow-937802069275.europe-west1.run.app")
 
 # --- Initialize Session State ---
 if "trade_logs" not in st.session_state:
